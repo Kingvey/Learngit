@@ -11,14 +11,14 @@ using System.Windows.Forms;
 using DevExpress.XtraRichEdit;
 using DevExpress.XtraRichEdit.API.Native;
 
-namespace CityPlanning.Modules
+namespace Test_KeyWordSearch
 {
     public partial class ucDocumentInternalSearch : UserControl
     {
-        private string keyWord; //搜索关键字
+        private string keyWord;
         private Document searchDocument;   //检索文档
         private RichEditControl richEditControl;  //关联RichEditControl空间
-        private bool imageFlag; //btn_Search按钮背景图片
+        private bool imageFlag;
 
         public RichEditControl RichEditControl
         {
@@ -155,12 +155,12 @@ namespace CityPlanning.Modules
         {
             if (te_KeyWord.Text == "")
             {
-                btn_Search.BackgroundImage = global::CityPlanning.Properties.Resources.search_16;
+                btn_Search.BackgroundImage = global::Test_KeyWordSearch.Properties.Resources.search_16;
                 imageFlag = true;
             }
             else
             {
-                btn_Search.BackgroundImage = global::CityPlanning.Properties.Resources.delete_16;
+                btn_Search.BackgroundImage = global::Test_KeyWordSearch.Properties.Resources.delete_16;
                 imageFlag = false;
             }
         }
@@ -203,8 +203,8 @@ namespace CityPlanning.Modules
         /// <param name="m">消息</param>
         protected override void WndProc(ref Message m)
         {
-            if (//m.Msg == WM_SETFOCUS
-                m.Msg == WM_KEYDOWN
+            if (m.Msg == WM_SETFOCUS
+                || m.Msg == WM_KEYDOWN
                 || m.Msg == WM_KEYUP
                 //|| m.Msg == WM_LBUTTONDOWN
                 //|| m.Msg == WM_LBUTTONUP
